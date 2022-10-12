@@ -4,6 +4,9 @@
 #include <errno.h>
 #include <limits.h>
 
+/*
+10/10
+*/
 void optionOne(){
     char *s = (char *) malloc(100);
     strcpy(s, "Welcome Sanitizer!");
@@ -11,12 +14,18 @@ void optionOne(){
     free(s);
 }
 
+/*
+reserva 100 bytes y no se liberan en ningún momento
+*/
 void optionTwo(){
     char *s = (char *) malloc(100);
     strcpy(s, "Welcome Sanitizer!");
     printf("string is: %s\n", s);
 }
 
+/*
+Reserva 100 bytes, libera ese espacio de memoria y luego intenta almacenar un valor
+*/
 void optionThree(){
     char *s = (char *) malloc(100);
     free(s);
@@ -24,6 +33,9 @@ void optionThree(){
     printf("string is: %s\n", s);
 }
 
+/*
+Reserva 18 bytes para una cadena de 18 caracteres en la que no se cuenta el \0
+*/
 void optionFour(){
     char *s = (char *) malloc(18);
     strcpy(s,  "Welcome Sanitizer!");

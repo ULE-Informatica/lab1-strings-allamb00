@@ -31,7 +31,7 @@ void gets_example_func(void) {
   char buf[BUFFER_MAX_SIZE];
  
   if (fgets(buf, sizeof(buf), stdin) == NULL) {
-        return 1;
+        return 1; //return en una funcion declarada como void
   }
   buf[strlen(buf) - 1] = '\0';
 }
@@ -50,7 +50,7 @@ void get_y_or_n(void) {
 	char response[8];
 
 	printf("Continue? [y] n: ");  
-	gets(response);
+	gets(response); //gets np controla el número de caracteres introducidos. Se recomienta utilizar fgets y establecer el máximo número de caracteres a introducir
 
 	if (response[0] == 'n') 
 		exit(0);  
